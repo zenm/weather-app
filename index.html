@@ -4,22 +4,27 @@
   <head>
     <meta charset="utf-8">
     <title>Weather</title>
+    <link rel="stylesheet" href="./resources/styles/reset.css">
     <link rel="stylesheet" href="./resources/styles/master.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   </head>
   <body>
-    <div class="weather-section">
-      <h1>Your Weather</h1>
-      <div class="temperature-section">
-        <h2 id="temperature"><i class="degree-icon"></i>75</h2>
+    <div class="weather-background">
+      <div class="weather-section">
+        <div class="temperature-section">
+          <h2><span id="temperature"></span><i class="fa fa-circle-o" aria-hidden="true" title="Temperature in degrees."></i></h2>
+          <h2 id="current-condition-desc"></h2>
+          <div id="current-condition-image"><img  src=""  alt=""></div>
+        </div>
+        <div class="location">
+          <h1>Your weather in <span id="user-location">Your City</span></h1>
+        </div>
+        <div class="imperial-metric">
+          <button id="imperial-metric-button" type="button" name="button"><label>Change to <span class="f-or-c">Farenheit</span></label></button>
+        </div>
       </div>
-      <div class="f-or-c">
-        <button type="button" name="button"><span = class="f-or-c button">Farenheit</span></button>
-        <span id="f-or-c"></span>
-      </div>
-      <footer>A <a href="#">freecodecamp</a> project by Lino Jimenez</footer>
-
-
     </div>
+    <footer>A <a href="#">freecodecamp</a> project by Lino Jimenez</footer>
     <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
