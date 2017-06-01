@@ -13,27 +13,6 @@ function error() {
   console.log("Can't get location. It doesn't look supported.")
 }
 
-var backgroundPicture = {
-"01d" :	"01d.jpg",
-"02d" :	"02d.jpg",
-"03d"	: "03d.jpg",
-"04d"	: "04d.jpg",
-"09d"	: "09d.jpg",
-"10d"	: "10d.jpg",
-"11d"	: "11d.jpg",
-"13d"	: "13d.jpg",
-"50d"	: "50d.jpg",
-"01n"	: "01n.jpg",
-"02n"	: "02n.jpg",
-"03n"	: "03n.jpg",
-"04n"	: "04n.jpg",
-"09n"	: "09n.jpg",
-"10n"	: "10n.jpg",
-"11n"	: "11n.jpg",
-"13n"	: "13n.jpg",
-"50n"	: "50n.jpg"
-}
-
 // weather API Url
 var weatherAPIUrl = "http://api.openweathermap.org/data/2.5/weather";
 var myAPIKey = "cce820a8ced713406cddcbdbc688eec5";
@@ -64,6 +43,7 @@ function getWeather() {
       currentConditionIcon = data.weather[0].icon;
       yourCity = data.name;
       showCurrentWeather();
+      changeBackgroundImage()
     }
   });
 }
@@ -100,5 +80,35 @@ function showCurrentWeather(){
     //example icon url `http://openweathermap.org/img/w/10d.png`
     $("#current-condition-image").prepend("<img src=\""+$imageURL+ currentConditionIcon +".png\" alt=\""+ currentCondition + "\">");
     $("#user-location").text(yourCity);
+  }
+}
+
+var backgroundPicture = {
+"01d" :	"01d.jpg",
+"02d" :	"02d.jpg",
+"03d"	: "03d.jpg",
+"04d"	: "04d.jpg",
+"09d"	: "09d.jpg",
+"10d"	: "10d.jpg",
+"11d"	: "11d.jpg",
+"13d"	: "13d.jpg",
+"50d"	: "50d.jpg",
+"01n"	: "01n.jpg",
+"02n"	: "02n.jpg",
+"03n"	: "03n.jpg",
+"04n"	: "04n.jpg",
+"09n"	: "09n.jpg",
+"10n"	: "10n.jpg",
+"11n"	: "11n.jpg",
+"13n"	: "13n.jpg",
+"50n"	: "50n.jpg"
+}
+// Change background image based on icon value.
+function changeBackgroundImage(){
+  if(backgroundPicture.hasOwnProperty(currentConditionIcon)) {
+    var imageURL = "../images/" + backgroundPicture[currentConditionIcon];
+    $(".weather-background").css({
+      'background-image': 'url('+ imageURL +')'
+    });
   }
 }

@@ -30,7 +30,6 @@ html {
 body,
 *
 {
-  /*border: 1px dashed pink;*/
   color: #fff;
   font-family: 'Merriweather Sans', sans-serif;
 }
@@ -44,11 +43,14 @@ h2 {
 
 /*weather section*/
 .weather-background {
-  background-color: hsla(235, 5%, 51%, 1);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 45rem;
+  background-color: hsla(235, 5%, 51%, 1);
+  /*background-image: url("../../images/01d.jpg");*/
+  background-position: center;
+  background-size: cover;
 }
 .weather-location {
   padding: 1rem;
