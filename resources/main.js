@@ -1,4 +1,3 @@
-
 //get user location
 var userLatitude;
 var userLongitude;
@@ -18,10 +17,8 @@ function error() {
 var weatherAPIUrl = "http://api.openweathermap.org/data/2.5/weather";
 var myAPIKey = "cce820a8ced713406cddcbdbc688eec5";
 
-
 $(document).ready(function() {
   navigator.geolocation.getCurrentPosition(success, error);
-
 });
 
 var tempInImperial;
@@ -43,8 +40,6 @@ function getWeather() {
     crossDomain : true,
     dataType: "jsonp",
     success : function(data){
-
-      // convert metric to imperial
       tempInImperial = Math.round(data.main.temp);
       currentCondition = data.weather[0].main;
       currentConditionIcon = data.weather[0].icon;
@@ -56,22 +51,32 @@ function getWeather() {
   });
 }
 
-// convert metric to imperial and vice versa
-
+// convert metric to imperial and vice versa on user click
 $("#imperial-metric-button").on("click", function(){
-  changeToMetricImperial();
+  changeButtonToMetricImperial();
+  changTempToMetricImperial();
 });
 
-function changeToMetricImperial() {
-    $(".f-or-c").text(function(){
-      return this == "Farenheit"? "Celsius":"Farenheit";
-    });
+function changeButtonToMetricImperial() {
+  var $imperialMetric = $(".f-or-c").text();
+  $(".f-or-c").text(function(){
+    return $imperialMetric == "Farenheit"? "Celsius" : "Farenheit";
+  });
 }
 
-// put data on page
+function changTempToMetricImperial(){
+  var $imperialMetric = $(".f-or-c").text();
+  if($imperialMetric == "Farenheit"){
+    $("#temperature").text(tempInImperial);
+  } else{
+    var tempInMetric = Math.round((tempInImperial-32)*(5/9));
+    $("#temperature").text(tempInMetric);
+  }
+}
+
+// put information on page
 function showCurrentWeather(){
   if(tempInImperial){
-
     $("#temperature").text(tempInImperial);
     $("#current-condition-desc").text(currentCondition);
     var $imageURL = "http://openweathermap.org/img/w/";
