@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html>
 <!-- Add langauge -->
-  <head>
-    <meta charset="utf-8">
-    <title>Weather</title>
-    <link rel="stylesheet" href="./resources/styles/reset.css">
-    <link rel="stylesheet" href="./resources/styles/master.css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  </head>
-  <body>
-    <div class="weather-background">
-      <!-- weather section -->
+<head>
+  <meta charset="utf-8">
+  <title>Weather</title>
+  <link rel="stylesheet" href="./resources/styles/reset.css">
+  <link rel="stylesheet" href="./resources/styles/master.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+  <div class="weather-background">
+    <!-- weather section -->
 
-        <div class="weather-location">
-          <div class="temperature-section">
-            <h1><span id="temperature"></span></h1>
-              <div class="degree-symbol">
-                <i class="fa fa-circle-o" aria-hidden="true" title="Temperature in degrees."></i>
-              </div>
-            <h1>and <span id="current-condition-desc"></span></h1>
-            <div id="current-condition-image"><img  src=""  alt=""></div>
-          </div>
-          <div class="location-section">
-            <h2>in <span id="user-location">Your City</span></h2>
-          </div>
-          <div class="imperial-metric">
-            <button id="imperial-metric-button" type="button" name="button"><label>Change to <span class="f-or-c">Farenheit</span></label></button>
-          </div>
+    <div class="weather-location">
+      <div class="temperature-section">
+        <h1><span id="temperature"></span></h1>
+        <div class="degree-symbol">
+          <i class="fa fa-circle-o" aria-hidden="true" title="Temperature in degrees."></i>
         </div>
-    </div>
-    <footer>
-      <div class="credits">
-        <h3>A <a href="#">freecodecamp</a> project by Lino Jimenez</h3>
+        <h1>and <span id="current-condition-desc"></span></h1>
+        <div id="current-condition-image"><img  src=""  alt=""></div>
       </div>
-    </footer>
-    <script
+      <div class="location-section">
+        <h2>in <span id="user-location">Your City</span></h2>
+      </div>
+      <div class="imperial-metric">
+        <button id="imperial-metric-button" type="button" name="button"><label>Change to <span class="f-or-c">Farenheit</span></label></button>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="credits">
+      <h3>A <a href="#">freecodecamp</a> project by Lino Jimenez</h3>
+    </div>
+  </footer>
+  <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
-    <script type="text/javascript" src="./resources/main.js"></script>
-  </body>
+  <script type="text/javascript" src="./resources/main.js"></script>
+</body>
 </html>

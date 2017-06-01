@@ -13,6 +13,27 @@ function error() {
   console.log("Can't get location. It doesn't look supported.")
 }
 
+var backgroundPicture = {
+"01d" :	"01d.jpg",
+"02d" :	"02d.jpg",
+"03d"	: "03d.jpg",
+"04d"	: "04d.jpg",
+"09d"	: "09d.jpg",
+"10d"	: "10d.jpg",
+"11d"	: "11d.jpg",
+"13d"	: "13d.jpg",
+"50d"	: "50d.jpg",
+"01n"	: "01n.jpg",
+"02n"	: "02n.jpg",
+"03n"	: "03n.jpg",
+"04n"	: "04n.jpg",
+"09n"	: "09n.jpg",
+"10n"	: "10n.jpg",
+"11n"	: "11n.jpg",
+"13n"	: "13n.jpg",
+"50n"	: "50n.jpg"
+}
+
 // weather API Url
 var weatherAPIUrl = "http://api.openweathermap.org/data/2.5/weather";
 var myAPIKey = "cce820a8ced713406cddcbdbc688eec5";
@@ -26,13 +47,11 @@ var currentCondition;
 var currentConditionIcon;
 var yourCity;
 function getWeather() {
-  console.log(userLatitude);
-  console.log(userLongitude);
   $.ajax({
     url : weatherAPIUrl,
     data : {
-      lat : userLatitude, //41
-      lon : userLongitude, //-82
+      lat : userLatitude,
+      lon : userLongitude,
       units : "imperial",
       APPID : myAPIKey
     },
@@ -44,8 +63,6 @@ function getWeather() {
       currentCondition = data.weather[0].main;
       currentConditionIcon = data.weather[0].icon;
       yourCity = data.name;
-      console.log(tempInImperial);
-      console.log(currentCondition);
       showCurrentWeather();
     }
   });
