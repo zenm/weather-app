@@ -14,7 +14,7 @@ function error() {
 }
 
 // weather API Url
-var weatherAPIUrl = "https://api.openweathermap.org/data/2.5/weather";
+var weatherAPIUrl = "http://api.openweathermap.org/data/2.5/weather";
 var myAPIKey = "cce820a8ced713406cddcbdbc688eec5";
 
 $(document).ready(function() {
