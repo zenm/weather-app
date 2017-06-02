@@ -95,7 +95,7 @@ var backgroundPicture = {
 // Change background image based on icon value.
 function changeBackgroundImage() {
   if(backgroundPicture.hasOwnProperty(currentConditionIcon)) {
-    var imageURL = "../images/" + backgroundPicture[currentConditionIcon];
+    var imageURL = "./images/" + backgroundPicture[currentConditionIcon];
     $(".weather-background").css({
       'background-image': 'url('+ imageURL +')'
     });
