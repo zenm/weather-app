@@ -25,11 +25,10 @@
 /*universal styles*/
 html {
   font-size: 16px;
+  min-height: 100%;
 }
 
-body,
-*
-{
+body {
   color: #fff;
   font-family: 'Merriweather Sans', sans-serif;
 }
@@ -37,8 +36,13 @@ body,
 h1 {
   font-size: 3rem;
 }
+
 h2 {
   font-size: 2.25rem;
+}
+
+.full-page{
+  width: 100%;
 }
 
 /*weather section*/
@@ -46,10 +50,11 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 45rem;
+  min-height: 100%;
   background-color: hsla(235, 5%, 51%, 1);
   background-position: center;
   background-size: cover;
+  height: 70rem;
 }
 .weather-location {
   padding: 1rem;
@@ -97,7 +102,7 @@ footer {
   display: flex;
   justify-content: center;
   background-color: hsl(266, 8%, 73%);
-
+  padding: 1rem 0;
 }
 
 footer a {

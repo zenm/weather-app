@@ -19,6 +19,9 @@ var myAPIKey = "a5873da77421eb5e70604462e2ac3e77";
 
 $(document).ready(function() {
   navigator.geolocation.getCurrentPosition(success, error);
+  vpw = $(window).width();
+  vph = $(window).height();
+  $(".full-page").height(vph);
 });
 
 var tempInImperial;
