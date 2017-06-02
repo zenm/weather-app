@@ -106,3 +106,6 @@ footer .credits {
   justify-content: center;
   flex-flow: row wrap;
 }
+footer a:visited {
+  color: #006400;
+}

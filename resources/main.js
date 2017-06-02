@@ -10,12 +10,12 @@ function success(position) {
 };
 
 function error() {
-  console.log("Can't get location. It doesn't look supported.")
+  console.log("Can't get location. It doesn't look supported.");
 }
 
-// weather API Url
-var weatherAPIUrl = "http://api.openweathermap.org/data/2.5/weather";
-var myAPIKey = "cce820a8ced713406cddcbdbc688eec5";
+//********************** weather API Url for darksky
+var weatherAPIUrl = "https://api.darksky.net/forecast/"
+var myAPIKey = "a5873da77421eb5e70604462e2ac3e77";
 
 $(document).ready(function() {
   navigator.geolocation.getCurrentPosition(success, error);
@@ -25,25 +25,24 @@ var tempInImperial;
 var currentCondition;
 var currentConditionIcon;
 var yourCity;
+
 function getWeather() {
   $.ajax({
-    url : weatherAPIUrl,
+    url : weatherAPIUrl + myAPIKey + "/"+ userLatitude + "," + userLongitude,
     data : {
-      lat : userLatitude,
-      lon : userLongitude,
-      units : "imperial",
-      APPID : myAPIKey
+      units : "us"
     },
     method : "GET",
     crossDomain : true,
     dataType: "jsonp",
     success : function(data){
-      tempInImperial = Math.round(data.main.temp);
-      currentCondition = data.weather[0].main;
-      currentConditionIcon = data.weather[0].icon;
-      yourCity = data.name;
+      tempInImperial = Math.round(data.currently.temperature);
+      currentCondition = data.currently.summary;
+      currentConditionIcon = data.currently.icon;
+      yourCity = data.timezone;
+      console.log(tempInImperial, currentCondition, currentConditionIcon, yourCity);
       showCurrentWeather();
-      changeBackgroundImage()
+      changeBackgroundImage();
     }
   });
 }
@@ -57,13 +56,13 @@ $("#imperial-metric-button").on("click", function(){
 function changeButtonToMetricImperial() {
   var $imperialMetric = $(".f-or-c").text();
   $(".f-or-c").text(function(){
-    return $imperialMetric == "Farenheit"? "Celsius" : "Farenheit";
+    return $imperialMetric == "Celsius"? "Farenheit" : "Celsius";
   });
 }
 
 function changTempToMetricImperial(){
   var $imperialMetric = $(".f-or-c").text();
-  if($imperialMetric == "Farenheit"){
+  if($imperialMetric == "Celsius"){
     $("#temperature").text(tempInImperial);
   } else{
     var tempInMetric = Math.round((tempInImperial-32)*(5/9));
@@ -77,32 +76,23 @@ function showCurrentWeather(){
     $("#temperature").text(tempInImperial);
     $("#current-condition-desc").text(currentCondition);
     var $imageURL = "http://openweathermap.org/img/w/";
-    //example icon url `http://openweathermap.org/img/w/10d.png`
-    $("#current-condition-image").prepend("<img src=\""+$imageURL+ currentConditionIcon +".png\" alt=\""+ currentCondition + "\">");
     $("#user-location").text(yourCity);
   }
 }
 
 var backgroundPicture = {
-"01d" :	"01d.jpg",
-"02d" :	"02d.jpg",
-"03d"	: "03d.jpg",
-"04d"	: "04d.jpg",
-"09d"	: "09d.jpg",
-"10d"	: "10d.jpg",
-"11d"	: "11d.jpg",
-"13d"	: "13d.jpg",
-"50d"	: "50d.jpg",
-"01n"	: "01n.jpg",
-"02n"	: "02n.jpg",
-"03n"	: "03n.jpg",
-"04n"	: "04n.jpg",
-"09n"	: "09n.jpg",
-"10n"	: "10n.jpg",
-"11n"	: "11n.jpg",
-"13n"	: "13n.jpg",
-"50n"	: "50n.jpg"
+"clear-day" : "clear-day.jpg",
+"clear-night" : "clear-night.jpg",
+"rain" : "rain.jpg",
+"snow" : "snow.jpg",
+"sleet" : "sleet.jpg",
+"wind" : "wind.jpg",
+"fog" : "fog.jpg",
+"cloudy" : "cloudy.jpg",
+"partly-cloudy-day" : "partly-cloudy-day.jpg",
+"partly-cloudy-night" : "partly-cloudy-night.jpg"
 }
+
 // Change background image based on icon value.
 function changeBackgroundImage(){
   if(backgroundPicture.hasOwnProperty(currentConditionIcon)) {
