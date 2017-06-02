@@ -48,7 +48,6 @@ h2 {
   align-items: center;
   height: 45rem;
   background-color: hsla(235, 5%, 51%, 1);
-  /*background-image: url("../../images/01d.jpg");*/
   background-position: center;
   background-size: cover;
 }
@@ -77,14 +76,14 @@ h2 {
 button {
   margin: .75rem 0 .75rem 0;
   padding: 1rem;
-  background-color: hsl(86, 9%, 32%);
+  background-color: hsl(86, 9%, 52%);
   border-radius: 7%;
   transition: background-color .3s ease .025s;
   border: none;
 }
 
 button:hover{
-  background-color: hsl(86, 9%, 50%);
+  background-color: hsl(86, 9%, 62%);
 }
 
 button label,
@@ -97,15 +96,23 @@ footer {
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: #524C5A;
+  background-color: hsl(266, 8%, 73%);
+
 }
 
-footer .credits {
+footer a {
+  color: #524C5A;
+}
+
+footer .credits h3 {
+  color: #524C5A;
   max-width: 30rem;
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
 }
+
+
 footer a:visited {
   color: #006400;
 }
