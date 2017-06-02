@@ -14,7 +14,7 @@ function error() {
 }
 
 //********************** weather API Url for darksky
-var weatherAPIUrl = "https://api.darksky.net/forecast/"
+var weatherAPIUrl = "https://api.darksky.net/forecast/";
 var myAPIKey = "a5873da77421eb5e70604462e2ac3e77";
 
 $(document).ready(function() {
@@ -35,7 +35,7 @@ function getWeather() {
     method : "GET",
     crossDomain : true,
     dataType: "jsonp",
-    success : function(data){
+    success : function(data) {
       tempInImperial = Math.round(data.currently.temperature);
       currentCondition = data.currently.summary;
       currentConditionIcon = data.currently.icon;
@@ -48,7 +48,7 @@ function getWeather() {
 }
 
 // convert metric to imperial and vice versa on user click
-$("#imperial-metric-button").on("click", function(){
+$("#imperial-metric-button").on("click", function() {
   changeButtonToMetricImperial();
   changTempToMetricImperial();
 });
@@ -60,19 +60,19 @@ function changeButtonToMetricImperial() {
   });
 }
 
-function changTempToMetricImperial(){
+function changTempToMetricImperial() {
   var $imperialMetric = $(".f-or-c").text();
-  if($imperialMetric == "Celsius"){
+  if($imperialMetric == "Celsius") {
     $("#temperature").text(tempInImperial);
-  } else{
+  } else {
     var tempInMetric = Math.round((tempInImperial-32)*(5/9));
     $("#temperature").text(tempInMetric);
   }
 }
 
 // put information on page
-function showCurrentWeather(){
-  if(tempInImperial){
+function showCurrentWeather() {
+  if(tempInImperial) {
     $("#temperature").text(tempInImperial);
     $("#current-condition-desc").text(currentCondition);
     var $imageURL = "http://openweathermap.org/img/w/";
@@ -81,20 +81,20 @@ function showCurrentWeather(){
 }
 
 var backgroundPicture = {
-"clear-day" : "clear-day.jpg",
-"clear-night" : "clear-night.jpg",
-"rain" : "rain.jpg",
-"snow" : "snow.jpg",
-"sleet" : "sleet.jpg",
-"wind" : "wind.jpg",
-"fog" : "fog.jpg",
-"cloudy" : "cloudy.jpg",
-"partly-cloudy-day" : "partly-cloudy-day.jpg",
-"partly-cloudy-night" : "partly-cloudy-night.jpg"
+  "clear-day" : "clear-day.jpg",
+  "clear-night" : "clear-night.jpg",
+  "rain" : "rain.jpg",
+  "snow" : "snow.jpg",
+  "sleet" : "sleet.jpg",
+  "wind" : "wind.jpg",
+  "fog" : "fog.jpg",
+  "cloudy" : "cloudy.jpg",
+  "partly-cloudy-day" : "partly-cloudy-day.jpg",
+  "partly-cloudy-night" : "partly-cloudy-night.jpg"
 }
 
 // Change background image based on icon value.
-function changeBackgroundImage(){
+function changeBackgroundImage() {
   if(backgroundPicture.hasOwnProperty(currentConditionIcon)) {
     var imageURL = "../images/" + backgroundPicture[currentConditionIcon];
     $(".weather-background").css({
