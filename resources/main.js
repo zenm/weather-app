@@ -75,7 +75,6 @@ function showCurrentWeather() {
   if(tempInImperial) {
     $("#temperature").text(tempInImperial);
     $("#current-condition-desc").text(currentCondition);
-    var $imageURL = "http://openweathermap.org/img/w/";
     $("#user-location").text(yourCity);
   }
 }
